@@ -1,4 +1,8 @@
+#include <iostream> 
+
 #include "Video.h"
+
+using namespace std;
 
 //proximamente tendremos pruebas
 
