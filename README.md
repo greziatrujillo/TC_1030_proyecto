@@ -2,7 +2,7 @@
 
 Para una nueva aplicación, estamos trabajando con videos que se clasifican en dos grupos: películas y series. De estos videos, todos tienen un ID distincto. Todos tienen un nombre, una duración, un género y su calificación promedio de 1 a 5 (5 siendo la calificación más alta).  Cada serie tiene episodios con su título y temporada. 
 
-Queremos desplegar la información dada. Es decir, queremos ver el título, su calificación final, su genero y que tipo de video es. 
+Queremos desplegar la información dada. Es decir, queremos ver el título, su calificación, su genero y que tipo de video es. 
 
 ### UML creado
 ![Captura de pantalla 2025-05-20 133955](https://github.com/user-attachments/assets/9611ad22-b5fc-4aa5-8d7b-69e10ca4302b)
