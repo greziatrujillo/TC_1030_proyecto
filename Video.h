@@ -3,7 +3,7 @@
  * Proyecto Tipo de video
  * Greiza Trujillo
  * A01713876
- * 22/05/2025
+ * 29/05/2025
  * 
  */
 
@@ -14,11 +14,10 @@
 
 using namespace std;
 
-
 //clase video que es abstracta
 class Video {
-    //variables de instancia
-    private:
+    //variables de instancia para usar en clases hija
+    protected:
         int ID;
         int duracion;
         string nombre;
@@ -28,6 +27,7 @@ class Video {
         //metodos de objetos instanciados
     public:
 
+        //constructor crear objeto sin declarar parametros
         Video(){
             ID = 0;
             duracion = 0;
@@ -35,6 +35,8 @@ class Video {
             genero = "";
             calificacion = 0.0;
         }
+
+        //constructor crear objeto directo con parametros
         Video(int id, int dur, string name, string gen, float calif) {
             ID = id;
             duracion = dur;
@@ -48,8 +50,9 @@ class Video {
             return "Video"; //default regresa tipo video
         }
 
+        //getters (otras clases u otros metodos podran tener acceso a este metodo)
         string getNombre() {
-            return nombre; //otras clases podran tener acceso a este metodo
+            return nombre; 
         }
 
         string getGenero() {
@@ -60,12 +63,41 @@ class Video {
             return calificacion;
         }
 
+        int getID() {
+            return ID; 
+        }
+
+        int getDuracion() {
+            return duracion;
+        }
+
+        //setters (se puede modificar despues de haber creado el objeto)
+        void setNombre(string name) {
+            nombre = name;
+        }
+
+        void setGenero(string gen) {
+            genero = gen;
+        }   
+
+        void setCalificacion(float calif) {
+            calificacion = calif;
+        }
+
+        void setID(int id) {
+            ID = id;
+        }
+
+        void setDuracion(int dur) {
+            duracion = dur;
+        }   
+
+        //mostrar informacion pedida al usuario 
         void mostrarTituloYCalificacion(){
-            cout << "Titulo: " << nombre
+            cout << "Titulo: " << getNombre()
                  << " |Tipo: " << getTipo()
-                 << " |Genero:" << genero
-                 << " |Calificacion: " << calificacion << endl; 
-                 //mostrar informacion pedida al usuario en terminal
+                 << " |Genero: " << getGenero()
+                 << " |Calificacion: " << getCalificacion() << endl << endl;; 
         }
 
 };
@@ -94,30 +126,64 @@ class Episodio {
          int temporada;
          string titulo;
          float calificacion;
+         int episodeNumber;
 
-         //metodos de objetos instanciados previamente
+    //metodos de objetos instanciados previamente
      public:
         Episodio() {
             titulo = "";
             temporada = 0;
+            episodeNumber = 0;
             calificacion = 0.0;
         }
     
-        Episodio(string title, int temp, float calif) {
+        Episodio(string title, int temp, int epNum, float calif) {
             titulo = title;
             temporada = temp;
+            episodeNumber = epNum;
             calificacion = calif;
         }
 
-        float calificacionFinal() {
+        //getters
+        string getTitulo() {
+            return titulo;
+        }   
+
+        int getTemporada() {
+            return temporada;
+        }
+
+        int getEpisodeNumber() {
+            return episodeNumber;
+        }
+
+        float getCalificacion() {
             return calificacion;
         }
 
-        //aqui mostramos infomacion al usuario diferente a lo default de serie o de pelicula, ya que pide titulo y temporada de cada episodio
-        void mostrarInfo() {
-            cout << "Nombre episodio: " << titulo
-                 << " |Temporada: " << temporada
-                 << " |Calificacion: " << calificacion << endl;
+        //setters
+        void setCalificacion(float calif) {
+            calificacion = calif;
+        } 
+
+        void setTemporada(int temp) {
+            temporada = temp;
+        }
+
+        void setTitulo(string title) {
+            titulo = title;
+        }
+
+        void setEpisodeNumber(int epiNum) {
+            episodeNumber = epiNum;
+        }
+
+        //aqui mostramos infomacion al usuario diferente a lo default de serie o de pelicula, ya que pide titulo, numero de episodio y temporada de cada episodio
+        virtual void mostrarInfo() {
+            cout << "Nombre episodio: " << getTitulo()
+                 << " |Temporada: " << getTemporada()
+                 << " |Episodio: " << getEpisodeNumber()
+                 << " |Calificacion: " << getCalificacion() << endl<< endl;
         }
  };
 
@@ -126,7 +192,7 @@ class Episodio {
     //variables de instancia
      private:
          int numEpisodios;
-         Episodio episodios[20]; //max 20 episodios por serie
+         Episodio* episodios[20]; //max 20 episodios por serie
 
          //metodos de objetos instanciados previamente y de clase video
      public:
@@ -144,7 +210,7 @@ class Episodio {
          }
 
          //agregamos episodios con la creacion de un objeto episodio
-         void agregarEpisodio(Episodio ep){
+         void agregarEpisodio(Episodio* ep){
             if (numEpisodios < 20) {
                 episodios[numEpisodios] = ep;
                 numEpisodios++; //menos de 20 epidodios, agregar a serie
@@ -153,13 +219,20 @@ class Episodio {
                 cout << "No se pueden agregar mas episodios" << endl;
             }
  }
-
         //sobrecarga(overload)
-        //agregar episodios directamente
-        void agregarEpisodio(string titulo, int temporada, float calif) {
-            Episodio newEp(titulo, temporada, calif);
-            agregarEpisodio(newEp);
+        //agregar episodios directamente usando new para poder usar apuntadores
+        void agregarEpisodio(string titulo, int temporada, int episodeNumber, float calif) {
+            if (numEpisodios < 20) {
+                episodios[numEpisodios] = new Episodio(titulo, temporada, episodeNumber, calif);
+            numEpisodios++;
         }
-};
+}
+
+        void mostrarEpisodios() {
+            for (int i = 0; i < numEpisodios; i++) {
+                episodios[i]->mostrarInfo(); //llama al metodo mostrarInfo de la clase Episodio para ver info de los episodios
+            }
+        }
+ };
 
 #endif
