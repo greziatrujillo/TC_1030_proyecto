@@ -4,13 +4,6 @@ Para una nueva aplicación, estamos trabajando con videos que se clasifican en d
 
 Queremos desplegar la información dada. Es decir, queremos ver el título, su calificación, su genero y que tipo de video es. También es importante poder cambiar los datos después de crearse por si hay algún error.
 
-### UML creado
-![Captura de pantalla 2025-05-26 140122](https://github.com/user-attachments/assets/96ad006a-cbbe-4449-9405-fa3699b8d15e)
-
-
-### Expliación de UML breve
-Las clases de Serie y Pelicula heredan de la clase Video. Heredan todos los atritbutos y métodos, con la excepción de getTipo ya que hay sobrecarga. Serie y Episodio tienen una relación de composición, ya que sin serie, no hay episodios. Tenemos una clase aparte para los episodios de la serie ya que cada episodio tiene sus atributos con los que tenemos que trabajar. Las características mencionadas previamente son parte de los atributos protegidos, y solo imprimimos lo necesario con los métodos públicos. Por ejemplo, el método getTipo() simplemente nos da el tipo de video sin ver los cambios que ha pasado (de video a película, por ejemplo). No visto en el UML para conservar tiempo y espacio, son los getters, setters y constructores que se esperan implementar. Es importante implementar el * en la clase Episodio para poder usar apuntadores en el main. No visto serán detalles específicos como sobre escritura y sobrecarga con ciertos métodos. 
-
 ## Funcionalidad
 El programa permite agregar tipos de videos clasificados entre series o películas. Para cada serie, se pueden agregar máximo 20 episodios, cada uno con su calificación, su título, el número de episodio y su temporada correspondiente. 
 
