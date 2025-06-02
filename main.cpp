@@ -11,7 +11,7 @@
 
 #include <iostream> 
 #include "Video.h"
-#include "Episodio.h"
+#include "episodio.h"
 
 using namespace std;
 
