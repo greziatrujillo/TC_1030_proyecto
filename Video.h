@@ -26,17 +26,7 @@ class Video {
 
         //metodos de objetos instanciados
     public:
-
-        //constructor crear objeto sin declarar parametros
-        Video(){
-            ID = 0;
-            duracion = 0;
-            nombre = "";
-            genero = "";
-            calificacion = 0.0;
-        }
-
-        //constructor crear objeto directo con parametros
+        //constructor crear objeto directo
         Video(int id, int dur, string name, string gen, float calif) {
             ID = id;
             duracion = dur;
@@ -45,12 +35,11 @@ class Video {
             calificacion = calif;
         }
 
-        //metodo virtual para que las clases que heredan de video puedan sobreescribirlo
-        virtual string getTipo() {
-            return "Video"; //default regresa tipo video
-        }
+        //crear pure virtual function para que las clases que heredan de video puedan sobreescribirlo
+        virtual string getTipo()=0;
+        
 
-        //getters (otras clases u otros metodos podran tener acceso a este metodo)
+        //getters
         string getNombre() {
             return nombre; 
         }
@@ -71,7 +60,7 @@ class Video {
             return duracion;
         }
 
-        //setters (se puede modificar despues de haber creado el objeto)
+        //setters 
         void setNombre(string name) {
             nombre = name;
         }
@@ -93,7 +82,7 @@ class Video {
         }   
 
         //mostrar informacion pedida al usuario 
-        void mostrarTituloYCalificacion(){
+        virtual void mostrarTituloYCalificacion(){
             cout << "Titulo: " << getNombre()
                  << " |Tipo: " << getTipo()
                  << " |Genero: " << getGenero()
@@ -102,92 +91,21 @@ class Video {
 
 };
 
-//clase pelicula que es abstracta que hereda de video
+//clase pelicula que hereda de video
  class Pelicula : public Video {
     
     //metodos de variables instanciadas de la clase video
      public:
-         Pelicula(){}
-
+         //constructor 
          Pelicula(int id, int dur, string name, string gen, float calif) : Video(id, dur, name, gen, calif) {
          }
 
-         string getTipo() {
-            return "Pelicula";
-        }
+         //override
+            string getTipo() {
+                return "Pelicula";  }
  };
 
- //clase episodio que es abstracta
-class Episodio {
-    //importante tener antes de clase serie para que clase serie pueda usar la informacion inicializada aqui
-
-    //variables de instancia
-     private:
-         int temporada;
-         string titulo;
-         float calificacion;
-         int episodeNumber;
-
-    //metodos de objetos instanciados previamente
-     public:
-        Episodio() {
-            titulo = "";
-            temporada = 0;
-            episodeNumber = 0;
-            calificacion = 0.0;
-        }
-    
-        Episodio(string title, int temp, int epNum, float calif) {
-            titulo = title;
-            temporada = temp;
-            episodeNumber = epNum;
-            calificacion = calif;
-        }
-
-        //getters
-        string getTitulo() {
-            return titulo;
-        }   
-
-        int getTemporada() {
-            return temporada;
-        }
-
-        int getEpisodeNumber() {
-            return episodeNumber;
-        }
-
-        float getCalificacion() {
-            return calificacion;
-        }
-
-        //setters
-        void setCalificacion(float calif) {
-            calificacion = calif;
-        } 
-
-        void setTemporada(int temp) {
-            temporada = temp;
-        }
-
-        void setTitulo(string title) {
-            titulo = title;
-        }
-
-        void setEpisodeNumber(int epiNum) {
-            episodeNumber = epiNum;
-        }
-
-        //aqui mostramos infomacion al usuario diferente a lo default de serie o de pelicula, ya que pide titulo, numero de episodio y temporada de cada episodio
-        virtual void mostrarInfo() {
-            cout << "Nombre episodio: " << getTitulo()
-                 << " |Temporada: " << getTemporada()
-                 << " |Episodio: " << getEpisodeNumber()
-                 << " |Calificacion: " << getCalificacion() << endl<< endl;
-        }
- };
-
- //clase serie que es abstracta que hereda de video
+ //clase serie que que hereda de video
  class Serie : public Video {
     //variables de instancia
      private:
@@ -196,10 +114,7 @@ class Episodio {
 
          //metodos de objetos instanciados previamente y de clase video
      public:
-         Serie(){
-            numEpisodios = 0;
-         }
-
+         //constructor
          Serie(int id, int dur, string name, string gen, float calif) : Video(id, dur, name, gen, calif) {
             numEpisodios = 0;
          }
@@ -207,13 +122,13 @@ class Episodio {
          //override
          string getTipo() {
             return "Serie";
-         }
+        }
 
          //agregamos episodios con la creacion de un objeto episodio
          void agregarEpisodio(Episodio* ep){
             if (numEpisodios < 20) {
                 episodios[numEpisodios] = ep;
-                numEpisodios++; //menos de 20 epidodios, agregar a serie
+                numEpisodios++; 
             } 
             else {
                 cout << "No se pueden agregar mas episodios" << endl;
@@ -228,9 +143,10 @@ class Episodio {
         }
 }
 
+        //mostrar episodios con su informacion
         void mostrarEpisodios() {
             for (int i = 0; i < numEpisodios; i++) {
-                episodios[i]->mostrarInfo(); //llama al metodo mostrarInfo de la clase Episodio para ver info de los episodios
+                episodios[i]->mostrarInfo(); 
             }
         }
  };
