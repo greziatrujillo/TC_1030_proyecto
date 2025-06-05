@@ -107,14 +107,14 @@ class Video {
                 return "Pelicula";  }
  };
 
- //clase serie que que hereda de video
+ //clase serie que hereda de video
  class Serie : public Video {
     //variables de instancia
      private:
          int numEpisodios;
          Episodio* episodios[20]; //max 20 episodios por serie
 
-         //metodos de objetos instanciados previamente y de clase video
+     //metodos de objetos instanciados previamente
      public:
          //constructor
          Serie(int id, int dur, string name, string gen, float calif) : Video(id, dur, name, gen, calif) {
