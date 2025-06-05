@@ -66,7 +66,7 @@ class Episodio {
             episodeNumber = epiNum;
         }
 
-        //mostramos infomacion al usuario de episodios ya que pide titulo, numero de episodio y temporada de cada uno
+        //mostramos infomacion al usuario de episodios
         void mostrarInfo() {
             cout << "Nombre episodio: " << getTitulo()
                  << " |Temporada: " << getTemporada()
