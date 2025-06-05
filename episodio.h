@@ -16,7 +16,11 @@
 #include "Video.h"
 using namespace std;
 
+/* clase episodio que es usada por la clase serie para crear episodios de una serie y tener su informacion
+* importante tener antes de clase serie para que clase serie pueda usar la informacion inicializada aqui 
+*/
 class Episodio {
+    //variables de instancia
      private:
          int temporada;
          string titulo;
@@ -66,11 +70,11 @@ class Episodio {
             episodeNumber = epiNum;
         }
 
-        //mostramos infomacion al usuario de episodios
+        //mostramos infomacion al usuario de episodios ya que pide titulo, numero de episodio y temporada de cada uno
         void mostrarInfo() {
             cout << "Nombre episodio: " << getTitulo()
                  << " |Temporada: " << getTemporada()
-                 << " |Episodio: " << getEpisodeNumber()
+                 << " |Episodio " << getEpisodeNumber()
                  << " |Calificacion: " << getCalificacion() << endl<< endl;
         }
  };
