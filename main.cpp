@@ -30,9 +30,9 @@ int main() {
     Serie *s1 = new Serie(2, 25, "She-Ra and the Princesses of Power", "Action", 4.5);
     s1-> agregarEpisodio("Corridors", 5, 3, 3.4); 
     Episodio* e1 = new Episodio("Stranded", 5, 4, 4.0); 
-    s1->agregarEpisodio(e1);
+    s1-> agregarEpisodio(e1);
 
-    s1 ->mostrarTituloYCalificacion();
+    s1-> mostrarTituloYCalificacion();
     s1-> mostrarEpisodios();
 
     return 0;
