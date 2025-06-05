@@ -16,7 +16,7 @@
 
 using namespace std;
 
-//clase video que es abstracta
+//clase video que es abstracta. creamos la clase base para que las clases que heredan de video puedan usar sus metodos y variables
 class Video {
     //variables de instancia para usar en clases hija
     protected:
@@ -26,9 +26,9 @@ class Video {
         string genero;
         float calificacion;
 
-        //metodos de objetos instanciados
+    //metodos de objetos instanciados
     public:
-        //constructor crear objeto directo
+        //constructor para crear objeto video directo
         Video(int id, int dur, string name, string gen, float calif) {
             ID = id;
             duracion = dur;
@@ -40,7 +40,6 @@ class Video {
         //crear pure virtual function para que las clases que heredan de video puedan sobreescribirlo
         virtual string getTipo()=0;
         
-
         //getters
         string getNombre() {
             return nombre; 
@@ -83,7 +82,7 @@ class Video {
             duracion = dur;
         }   
 
-        //mostrar informacion pedida al usuario 
+        //mostrar informacion pedida al usuario con formato 
         virtual void mostrarTituloYCalificacion(){
             cout << "Titulo: " << getNombre()
                  << " |Tipo: " << getTipo()
@@ -93,7 +92,7 @@ class Video {
 
 };
 
-//clase pelicula que hereda de video
+//clase pelicula que hereda de video. creamos objetos tipo pelicula.
  class Pelicula : public Video {
     
     //metodos de variables instanciadas de la clase video
@@ -107,14 +106,14 @@ class Video {
                 return "Pelicula";  }
  };
 
- //clase serie que hereda de video
+ //clase serie que que hereda de video. creamos objetos tipo serie que tienen episodios
  class Serie : public Video {
     //variables de instancia
      private:
          int numEpisodios;
          Episodio* episodios[20]; //max 20 episodios por serie
 
-     //metodos de objetos instanciados previamente
+         //metodos de objetos instanciados previamente y de clase video
      public:
          //constructor
          Serie(int id, int dur, string name, string gen, float calif) : Video(id, dur, name, gen, calif) {
@@ -126,7 +125,7 @@ class Video {
             return "Serie";
         }
 
-         //agregamos episodios con la creacion de un objeto episodio
+         //agregamos episodios con la creacion de un objeto episodio mientras la serie tenga menos de 20 episodios
          void agregarEpisodio(Episodio* ep){
             if (numEpisodios < 20) {
                 episodios[numEpisodios] = ep;
@@ -137,7 +136,7 @@ class Video {
             }
  }
         //sobrecarga(overload)
-        //agregar episodios directamente usando new para poder usar apuntadores
+        //agregar episodios directamente usando new para poder usar apuntadores mientras la serie tenga menos de 20 episodios
         void agregarEpisodio(string titulo, int temporada, int episodeNumber, float calif) {
             if (numEpisodios < 20) {
                 episodios[numEpisodios] = new Episodio(titulo, temporada, episodeNumber, calif);
@@ -145,7 +144,7 @@ class Video {
         }
 }
 
-        //mostrar episodios con su informacion
+        //mostrar episodios con su informacion mientras se recorre el arreglo de episodios
         void mostrarEpisodios() {
             for (int i = 0; i < numEpisodios; i++) {
                 episodios[i]->mostrarInfo(); 
