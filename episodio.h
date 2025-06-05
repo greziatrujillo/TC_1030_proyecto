@@ -16,7 +16,7 @@
 #include "Video.h"
 using namespace std;
 
-/* clase episodio que es usada por la clase serie para crear episodios de una serie y tener su informacion
+/* Esta clase sera usada por la clase serie para crear episodios de una serie y tener su informacion
 * importante tener antes de clase serie para que clase serie pueda usar la informacion inicializada aqui 
 */
 class Episodio {
