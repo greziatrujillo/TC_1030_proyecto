@@ -14,6 +14,8 @@
 
 #include <iostream>
 #include "Video.h"
+#include "Video.cpp"
+#include "episodio.cpp"
 using namespace std;
 
 /* Esta clase sera usada por la clase serie para crear episodios de una serie y tener su informacion
