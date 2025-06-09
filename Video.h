@@ -35,18 +35,14 @@ class Video {
         //crear pure virtual function para que las clases que heredan de video puedan sobreescribirlo
         virtual string getTipo()=0;
         
-        //getters
+        //getters instanciados
         string getNombre();
-
         string getGenero();
-
         float getCalificacion();
-
         int getID();
-
         int getDuracion();
 
-        //setters 
+        //setters instanciados
         void setNombre(string name);
 
         void setGenero(string gen);
@@ -71,6 +67,7 @@ class Video {
 
          //override
             string getTipo();
+};
 
  //clase serie que que hereda de video. creamos objetos tipo serie que tienen episodios
  class Serie : public Video {
