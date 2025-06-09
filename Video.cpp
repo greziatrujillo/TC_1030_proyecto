@@ -1,5 +1,6 @@
 #include "Video.h"
 
+//definimos las funciones de clase video
 Video::Video(int id, int dur, string name, string gen, float calif)
     : ID(id), duracion(dur), nombre(name), genero(gen), calificacion(calif) {}
 
@@ -24,7 +25,7 @@ int Video::getDuracion() {
     return duracion;
 }
 
-//setter definidos
+//setters definidos
 void Video::setNombre(string name) {
     nombre = name;
 }
@@ -53,7 +54,7 @@ void Video::mostrarTituloYCalificacion() {
          << " |Calificacion: " << getCalificacion() << endl << endl;
 }
 
-//definiciones de clase hija pelicula
+//definiciones de funciones de clase hija pelicula
 //definicion de constructor
 Pelicula::Pelicula(int id, int dur, string name, string gen, float calif)
     : Video(id, dur, name, gen, calif) {}
