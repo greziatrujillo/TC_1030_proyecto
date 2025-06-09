@@ -31,12 +31,7 @@ class Episodio {
 
      public:
      //constructor
-        Episodio(string title, int temp, int epNum, float calif) {
-            titulo = title;
-            temporada = temp;
-            episodeNumber = epNum;
-            calificacion = calif;
-        }
+        Episodio(string title, int temp, int epNum, float calif);
 
         //getters
         string getTitulo() {
@@ -68,17 +63,12 @@ class Episodio {
             titulo = title;
         }
 
-        void setEpisodeNumber(int epiNum) {
+        void setEpisodeNumber(int epiNum){
             episodeNumber = epiNum;
         }
 
         //mostramos infomacion al usuario de episodios ya que pide titulo, numero de episodio y temporada de cada uno
-        void mostrarInfo() {
-            cout << "Nombre episodio: " << getTitulo()
-                 << " |Temporada: " << getTemporada()
-                 << " |Episodio " << getEpisodeNumber()
-                 << " |Calificacion: " << getCalificacion() << endl<< endl;
-        }
+        void mostrarInfo();
  };
 
 #endif
