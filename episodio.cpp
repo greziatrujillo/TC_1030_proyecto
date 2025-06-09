@@ -9,24 +9,52 @@
  * 
  */
 
-#ifndef EPISODIO_CPP
-#define EPISODIO_CPP
-
 #include <iostream>
-#include "Video.h"
 #include "episodio.h"
 using namespace std;
 
-Episodio:Episodio(string title, int temp, int epNum, float calif) // constructor definition
-    :titulo {title}
-    , temporada {temp}
-    , episodeNumber {epNum}
-    , calificacion {calif}
+//constructor definido
+Episodio::Episodio(string title, int temp, int epNum, float calif)
+    : titulo(title), temporada(temp), episodeNumber(epNum), calificacion(calif) {}
 
-  void Episodio::mostrarInfo() const //mostrarInfo definition
-{
-            cout << "Nombre episodio: " << getTitulo()
-                 << " |Temporada: " << getTemporada()
-                 << " |Episodio " << getEpisodeNumber()
-                 << " |Calificacion: " << getCalificacion() << endl<< endl;
-        }
+//getters definidos
+string Episodio::getTitulo() {
+    return titulo;
+}
+
+int Episodio::getTemporada() {
+    return temporada;
+}
+
+int Episodio::getEpisodeNumber() {
+    return episodeNumber;
+}
+
+float Episodio::getCalificacion() {
+    return calificacion;
+}
+
+//setters definidos
+void Episodio::setCalificacion(float calif) {
+    calificacion = calif;
+}
+
+void Episodio::setTemporada(int temp) {
+    temporada = temp;
+}
+
+void Episodio::setTitulo(string title) {
+    titulo = title;
+}
+
+void Episodio::setEpisodeNumber(int epiNum) {
+    episodeNumber = epiNum;
+}
+
+//funcion para demostrar informacion de episodio definida
+void Episodio::mostrarInfo() {
+    cout << "Nombre episodio: " << getTitulo()
+         << " |Temporada: " << getTemporada()
+         << " |Episodio " << getEpisodeNumber()
+         << " |Calificacion: " << getCalificacion() << endl << endl;
+}
