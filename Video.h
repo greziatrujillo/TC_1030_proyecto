@@ -5,7 +5,7 @@
  * Pelicula y Serie con sus atributos respectivos
  * Grezia Trujillo
  * A01713876
- * 05/06/2025
+ * 12/06/2025
  * 
  */
 
@@ -13,8 +13,8 @@
 #define VIDEO_H
 
 #include <iostream>
+#include <string>
 #include "episodio.h"
-
 using namespace std;
 
 //clase video que es abstracta. creamos la clase base para que las clases que heredan de video puedan usar sus metodos y variables
@@ -30,82 +30,47 @@ class Video {
     //metodos de objetos instanciados
     public:
         //constructor para crear objeto video directo
-        Video(int id, int dur, string name, string gen, float calif) {
-            ID = id;
-            duracion = dur;
-            nombre = name;
-            genero = gen;
-            calificacion = calif;
-        }
+        Video(int id, int dur, string name, string gen, float calif);
 
         //crear pure virtual function para que las clases que heredan de video puedan sobreescribirlo
         virtual string getTipo()=0;
         
         //getters
-        string getNombre() {
-            return nombre; 
-        }
+        string getNombre();
 
-        string getGenero() {
-            return genero;
-        }
+        string getGenero();
 
-        float getCalificacion() {
-            return calificacion;
-        }
+        float getCalificacion();
 
-        int getID() {
-            return ID; 
-        }
+        int getID();
 
-        int getDuracion() {
-            return duracion;
-        }
+        int getDuracion();
 
         //setters 
-        void setNombre(string name) {
-            nombre = name;
-        }
+        void setNombre(string name);
 
-        void setGenero(string gen) {
-            genero = gen;
-        }   
+        void setGenero(string gen);
 
-        void setCalificacion(float calif) {
-            calificacion = calif;
-        }
+        void setCalificacion(float calif);
 
-        void setID(int id) {
-            ID = id;
-        }
+        void setID(int id);
 
-        void setDuracion(int dur) {
-            duracion = dur;
-        }   
+        void setDuracion(int dur);
 
         //mostrar informacion pedida al usuario con formato 
-        virtual void mostrarTituloYCalificacion(){
-            cout << "Titulo: " << getNombre()
-                 << " |Tipo: " << getTipo()
-                 << " |Genero: " << getGenero()
-                 << " |Calificacion: " << getCalificacion() << endl << endl;; 
-        }
+        virtual void mostrarTituloYCalificacion();
 
 };
 
 //clase pelicula que hereda de video. creamos objetos tipo pelicula.
  class Pelicula : public Video {
-    
     //metodos de variables instanciadas de la clase video
      public:
          //constructor 
-         Pelicula(int id, int dur, string name, string gen, float calif) : Video(id, dur, name, gen, calif) {
-         }
+         Pelicula(int id, int dur, string name, string gen, float calif);
 
          //override
-            string getTipo() {
-                return "Pelicula";  }
- };
+            string getTipo();
 
  //clase serie que que hereda de video. creamos objetos tipo serie que tienen episodios
  class Serie : public Video {
@@ -117,40 +82,20 @@ class Video {
          //metodos de objetos instanciados previamente y de clase video
      public:
          //constructor
-         Serie(int id, int dur, string name, string gen, float calif) : Video(id, dur, name, gen, calif) {
-            numEpisodios = 0;
-         }
+         Serie(int id, int dur, string name, string gen, float calif);
 
          //override
-         string getTipo() {
-            return "Serie";
-        }
+         string getTipo();
 
          //agregamos episodios con la creacion de un objeto episodio mientras la serie tenga menos de 20 episodios
-         void agregarEpisodio(Episodio* ep){
-            if (numEpisodios < 20) {
-                episodios[numEpisodios] = ep;
-                numEpisodios++; 
-            } 
-            else {
-                cout << "No se pueden agregar mas episodios" << endl;
-            }
- }
+         void agregarEpisodio(Episodio* ep);
+
         //sobrecarga(overload)
         //agregar episodios directamente usando new para poder usar apuntadores mientras la serie tenga menos de 20 episodios
-        void agregarEpisodio(string titulo, int temporada, int episodeNumber, float calif) {
-            if (numEpisodios < 20) {
-                episodios[numEpisodios] = new Episodio(titulo, temporada, episodeNumber, calif);
-            numEpisodios++;
-        }
-}
+        void agregarEpisodio(string titulo, int temporada, int episodeNumber, float calif);
 
         //mostrar episodios con su informacion mientras se recorre el arreglo de episodios
-        void mostrarEpisodios() {
-            for (int i = 0; i < numEpisodios; i++) {
-                episodios[i]->mostrarInfo(); 
-            }
-        }
+        void mostrarEpisodios();
  };
 
 #endif
