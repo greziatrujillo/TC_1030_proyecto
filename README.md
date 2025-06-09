@@ -14,4 +14,4 @@ Adicionalmente, aunque se crean los objetos incialmente, se pueden modificar los
 ## Consideraciones
 El programa solo corre en la consola y esta hecho con c++ standard por lo que corre en todos los sistemas operativos.
 
-Compilar con: "g++ Video.cpp episodio.cpp main.cpp"
+Compilar con: "g++ main.cpp Video.cpp episodio.cpp"
