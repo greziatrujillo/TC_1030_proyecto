@@ -5,7 +5,7 @@
  * importante tener antes de clase serie para que clase serie pueda usar la informacion inicializada aqui
  * Grezia Trujillo
  * A01713876
- * 05/06/2025
+ * 12/06/2025
  * 
  */
 
@@ -13,9 +13,7 @@
 #define EPISODIO_H
 
 #include <iostream>
-#include "Video.h"
-#include "Video.cpp"
-#include "episodio.cpp"
+#include <string>
 using namespace std;
 
 /* Esta clase sera usada por la clase serie para crear episodios de una serie y tener su informacion
@@ -33,39 +31,23 @@ class Episodio {
      //constructor
         Episodio(string title, int temp, int epNum, float calif);
 
-        //getters
-        string getTitulo() {
-            return titulo;
-        }   
+        //getters instanciados
+        string getTitulo();
 
-        int getTemporada() {
-            return temporada;
-        }
+        int getTemporada();
 
-        int getEpisodeNumber() {
-            return episodeNumber;
-        }
+        int getEpisodeNumber();
 
-        float getCalificacion() {
-            return calificacion;
-        }
+        float getCalificacion();
 
-        //setters
-        void setCalificacion(float calif) {
-            calificacion = calif;
-        } 
+        //setters intanciados
+        void setCalificacion(float calif);
 
-        void setTemporada(int temp) {
-            temporada = temp;
-        }
+        void setTemporada(int temp);
 
-        void setTitulo(string title) {
-            titulo = title;
-        }
+        void setTitulo(string title);
 
-        void setEpisodeNumber(int epiNum){
-            episodeNumber = epiNum;
-        }
+        void setEpisodeNumber(int epiNum);
 
         //mostramos infomacion al usuario de episodios ya que pide titulo, numero de episodio y temporada de cada uno
         void mostrarInfo();
