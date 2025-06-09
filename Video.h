@@ -13,6 +13,7 @@
 #define VIDEO_H
 
 #include <iostream>
+#include "episodio.h"
 
 using namespace std;
 
