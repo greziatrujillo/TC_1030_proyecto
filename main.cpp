@@ -1,6 +1,6 @@
 /*
  *
- * Proyecto Tipo de video
+ * Proyecto Gestión de videos
  * Grezia Trujillo
  * A01713876
  * 12/06/2025
