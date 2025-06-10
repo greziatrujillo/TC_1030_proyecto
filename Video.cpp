@@ -1,3 +1,17 @@
+/*
+ * Proyecto Gestión de videos
+ * Grezia Trujillo
+ * A01713876
+ * 12/06/2025
+ * 
+ */
+
+/*
+ * Aquí se definen las funciones creadas en la clase padre Video y 
+ * sus clases hija de Pelicula y Serie
+ * 
+ */
+
 #include "Video.h"
 
 //definimos las funciones de clase video
