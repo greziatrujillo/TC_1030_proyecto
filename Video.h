@@ -7,6 +7,8 @@
  */
 
 /*
+ * Proyecto con la meta de poder identificar tipos de videos y dar sus atributos al usuario
+ * (titulo, tipo de video, calificacion)
  * Define objeto de tipo Video que contiene las clases heredadas
  * Pelicula y Serie con sus atributos respectivos
  * 
