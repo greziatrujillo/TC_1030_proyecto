@@ -1,11 +1,14 @@
 /*
- *
- * Proyecto Tipo de video
- * Define objeto de tipo Video que contiene las clases heredadas
- * Pelicula y Serie con sus atributos respectivos
+ * Proyecto Gestión de videos
  * Grezia Trujillo
  * A01713876
  * 12/06/2025
+ * 
+ */
+
+/*
+ * Define objeto de tipo Video que contiene las clases heredadas
+ * Pelicula y Serie con sus atributos respectivos
  * 
  */
 
