@@ -1,12 +1,18 @@
 /*
  *
- * Proyecto Tipo de video
- * clase Episodio para poder definir episodios y sus atributos
- * importante tener antes de clase serie para que clase serie pueda usar la informacion inicializada aqui
+ * Proyecto Gestión de videos
  * Grezia Trujillo
  * A01713876
  * 12/06/2025
  * 
+ */
+
+/*
+ * 
+ * clase Episodio para poder definir episodios y sus atributos
+ * se inician sus variables de instancia junto con las funciones
+ * importante tener antes de clase serie para que clase serie pueda usar la informacion inicializada aqui
+ *
  */
 
 #ifndef EPISODIO_H
