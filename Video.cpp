@@ -108,7 +108,7 @@ void Serie::agregarEpisodio(string titulo, int temporada, int episodeNumber, flo
     }
 }
 
-//definicion de funcion que muestra informacion de cada episodio
+//definicion de funcion que muestra informacion de cada episodio mientras se recorre el arreglo de episodios
 void Serie::mostrarEpisodios() {
     for (int i = 0; i < numEpisodios; i++) {
         episodios[i]->mostrarInfo();
