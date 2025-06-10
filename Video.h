@@ -49,16 +49,12 @@ class Video {
 
         //setters instanciados
         void setNombre(string name);
-
         void setGenero(string gen);
-
         void setCalificacion(float calif);
-
         void setID(int id);
-
         void setDuracion(int dur);
 
-        //mostrar informacion pedida al usuario con formato 
+        //mostrar informacion pedida al usuario de titulo, genero, tipo de video y calificacion
         virtual void mostrarTituloYCalificacion();
 
 };
@@ -67,7 +63,7 @@ class Video {
  class Pelicula : public Video {
     //metodos de variables instanciadas de la clase video
      public:
-         //constructor 
+         //constructor para crear tipo pelicula directo
          Pelicula(int id, int dur, string name, string gen, float calif);
 
          //override
@@ -83,7 +79,7 @@ class Video {
 
          //metodos de objetos instanciados previamente y de clase video
      public:
-         //constructor
+         //constructor para crear tipo serie directo
          Serie(int id, int dur, string name, string gen, float calif);
 
          //override
