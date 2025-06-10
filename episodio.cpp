@@ -1,12 +1,16 @@
 /*
  *
  * Proyecto Tipo de video
- * clase Episodio con sus funciones definidas
- * importante tener antes de clase serie para que clase serie pueda usar la informacion inicializada aqui
  * Grezia Trujillo
  * A01713876
  * 12/06/2025
- * 
+ */
+
+/*
+ * clase Episodio con sus funciones definidas
+ * importante tener antes de clase serie para que clase serie pueda usar la informacion inicializada aqui
+ * se pueden ver los metodos para agregar episodios con sus propios atributos
+ *
  */
 
 #include <iostream>
