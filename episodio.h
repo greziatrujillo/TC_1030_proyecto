@@ -7,13 +7,9 @@
  * 
  */
 
-/*
- * 
- * clase Episodio para poder definir episodios y sus atributos
- * se inician sus variables de instancia junto con las funciones
- * importante tener antes de clase serie para que clase serie pueda usar la informacion inicializada aqui
- *
- */
+/* Esta clase sera usada por la clase serie para crear episodios de una serie y tener su informacion
+* importante tener antes de clase serie para que clase serie pueda usar la informacion inicializada aqui 
+*/
 
 #ifndef EPISODIO_H
 #define EPISODIO_H
@@ -21,9 +17,7 @@
 #include <string>
 using namespace std;
 
-/* Esta clase sera usada por la clase serie para crear episodios de una serie y tener su informacion
-* importante tener antes de clase serie para que clase serie pueda usar la informacion inicializada aqui 
-*/
+
 class Episodio {
     //variables de instancia
      private:
@@ -33,7 +27,7 @@ class Episodio {
          int episodeNumber;
 
      public:
-     //constructor
+     //constructor para crear episodio directo
         Episodio(string title, int temp, int epNum, float calif);
 
         //getters instanciados
