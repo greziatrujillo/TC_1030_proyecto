@@ -74,24 +74,28 @@ Pelicula::Pelicula(int id, int dur, string name, string gen, float calif)
     : Video(id, dur, name, gen, calif) {}
 
 //definicion de sobre escritura de getTipo
+//el tipo de video se asigna como pelicula
 string Pelicula::getTipo() {
     return "Pelicula";
 }
 
 //definiciones de funciones de clase hija serie
+//constructor de serie empezando con cero episodios
 Serie::Serie(int id, int dur, string name, string gen, float calif)
     : Video(id, dur, name, gen, calif) {
     numEpisodios = 0;
 }
 
+//sobre escritura donde el tipo de video asignado es Serie
 string Serie::getTipo() {
     return "Serie";
 }
 
+//se agrega un episodio nuevo a la serie creada creando un objeto Episodio
 void Serie::agregarEpisodio(Episodio* ep) {
     if (numEpisodios < 20) {
         episodios[numEpisodios++] = ep;
-    } else {
+    } else { //tener en cuenta que la serie tenga menos de 20 episodios
         cout << "No se pueden agregar más episodios" << endl;
     }
 }
