@@ -8,8 +8,9 @@
 
 /*
  * Aquí se definen las funciones creadas en la clase padre Video y 
- * sus clases hija de Pelicula y Serie
- * 
+ * sus clases hija de Pelicula y Serie.
+ * Tambien se define la clase Catalogue para almacenar
+ *
  */
 
 #include "Video.h"
@@ -114,3 +115,46 @@ void Serie::mostrarEpisodios() {
         episodios[i]->mostrarInfo();
     }
 }
+
+//se definen las funciones de la clase Catalogue
+    //constructor para crear un objeto catalogo
+Catalogue::Catalogue() : numPeliculas(0), numSeries(0) {
+        }
+
+//mientras hay menos de 100 peliculas, se puede agregar una nueva pelicula al catalogo
+ void Catalogue::agregarPelicula(Pelicula* peli) {
+            if (numPeliculas < 100) {
+                peliculas[numPeliculas] = peli;
+                numPeliculas++;
+            } else {
+                cout << "No se pueden agregar mas peliculas" << endl;
+            }
+        }
+
+ //mientras hay menos de 100 series, se puede agregar una nueva serie al catalogo
+void Catalogue::agregarSerie(Serie* serie) {
+    if (numSeries < 100) {
+        series[numSeries] = serie;
+        numSeries++;
+    } else {
+        cout << "No se pueden agregar mas series" << endl;
+    }
+}
+
+//mostramos las peliculas almcenadas con la funcion definida previamente mientras se recorre el arreglo
+void Catalogue::mostrarPeliculas() {
+    cout << "Peliculas:" << endl;
+    for (int i = 0; i < numPeliculas; i++) {
+        peliculas[i]->mostrarTituloYCalificacion();
+    }
+}
+
+//mostramos las series almacenadas con la funcion definida previamente mientras se recorre el arreglo
+void Catalogue::mostrarSeries() {
+    cout << "Series:" << endl;
+    for (int i = 0; i < numSeries; i++) {
+        series[i]->mostrarTituloYCalificacion();
+    }
+}
+
+ };
