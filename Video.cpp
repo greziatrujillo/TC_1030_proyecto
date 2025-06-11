@@ -143,7 +143,7 @@ void Catalogue::agregarSerie(Serie* serie) {
 
 //mostramos las peliculas almcenadas con la funcion definida previamente mientras se recorre el arreglo
 void Catalogue::mostrarPeliculas() {
-    cout << "Peliculas:" << endl;
+    cout << "Movies:" << endl;
     for (int i = 0; i < numPeliculas; i++) {
         peliculas[i]->mostrarTituloYCalificacion();
     }
