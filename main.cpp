@@ -10,10 +10,34 @@
  */
 
 #include <iostream> 
+#include <string>
 #include "Video.h"
 #include "episodio.h"
 
 using namespace std;
+
+//creamos las funciones para el menu para que el usuario pueda ver las opciones de desplegar peliculas o series, o agregar nuevos videos
+
+ //empezamos con la funcion de poder mostrar el menu con sus opciones al usuario
+ //podemos ver peliculas, series, los episodios de dicha serie, o agregar cualquiera
+ void mostrarMenu() { //creamos el menu con sus opciones
+    cout << "Menu de Videos" << endl;
+    cout << "1. Peliculas" << endl;
+    cout << "2. Series" << endl;
+    cout << "3. Episodios de una Serie" << endl;
+    cout << "4. Agregar Pelicula" << endl;
+    cout << "5. Agregar Serie" << endl;
+    cout << "6. Exit" << endl;
+    cout << "Seleccione una opcion: ";
+ }
+
+ //funcion de instrucciones para el usuario
+//estas instrucciones se imprimen para guiar el usuario
+ void instructions() {
+    cout << "Instructions:" << endl;
+    cout << "Type the respective number for the option." << endl;
+    cout << "If needed, add the information requested (4 and 5)." << endl;
+ }
 
 //proximamente tendremos pruebas
  int main() {
@@ -37,6 +61,11 @@ using namespace std;
 
     s1->mostrarTituloYCalificacion();
     s1->mostrarEpisodios(); //muestra episodios de serie con su informacion
+
+  //imprime instrucciones al usuario
+    instructions(); 
+
+    //creamos el ciclo para el menu mientras el usuario no salga
 
     return 0;
  }
