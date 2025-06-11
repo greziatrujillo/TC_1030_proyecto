@@ -8,9 +8,10 @@
 
 /*
  * Proyecto con la meta de poder identificar tipos de videos y dar sus atributos al usuario
- * (titulo, tipo de video, calificacion)
+ * (titulo, tipo de video, calificacion).
  * Define objeto de tipo Video que contiene las clases heredadas
- * Pelicula y Serie con sus atributos respectivos
+ * Pelicula y Serie con sus atributos respectivos.
+ * creamos un catalogo para poder almacenar las peliculas y series creadas.
  * 
  */
 
@@ -94,6 +95,34 @@ class Video {
 
         //mostrar episodios con su informacion mientras se recorre el arreglo de episodios
         void mostrarEpisodios();
+ };
+
+//creamos un catalogo para poder almacenar las peliculas y series que se agreguen
+ class Catalogue {
+    private:
+        Pelicula* peliculas[100]; //max 100 peliculas
+        int numPeliculas;
+
+
+        Serie* series[100]; //max 100 series
+        int numSeries;
+
+    public:
+    //constructor para crear un objeto catalogo
+        Catalogue();
+
+        //mientras hay menos de 100 peliculas, se puede agregar una nueva pelicula al catalogo
+        void agregarPelicula(Pelicula* peli);
+
+        //mientras hay menos de 100 series, se puede agregar una nueva serie al catalogo
+        void agregarSerie(Serie* serie);
+
+        //mostramos las peliculas almcenadas con la funcion definida previamente mientras se recorre el arreglo
+        void mostrarPeliculas();
+
+        //mostramos las series almacenadas con la funcion definida previamente mientras se recorre el arreglo
+        void mostrarSeries();
+
  };
 
 #endif
