@@ -79,10 +79,6 @@ using namespace std;
     catalogo.agregarPelicula(p4);
     catalogo.agregarSerie(s2); 
 
-    catalogo.mostrarPeliculas(); //mostrar peliculas del catalogo
-    catalogo.mostrarSeries(); //mostrar series del catalogo
-    s1->mostrarEpisodios(); //muestra episodios de serie con su informacion
-
     //imprime instrucciones al usuario
     instructions(); 
 
