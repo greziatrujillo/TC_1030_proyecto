@@ -94,13 +94,11 @@ using namespace std;
         //dependiendo de la opcion, diferentes operaciones se realizan
         //opcion 1 despliega peliculas
         if (option == 1) {
-            cout << "Movies:" << endl;
             catalogo.mostrarPeliculas(); 
         }
 
         //opcion 2 despliega series
         else if (option == 2) {
-            cout << "Series:" << endl;
             catalogo.mostrarSeries();
         }
 
