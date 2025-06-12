@@ -118,6 +118,7 @@ void Serie::mostrarEpisodios() {
 
 //se definen las funciones de la clase Catalogue
     //constructor para crear un objeto catalogo
+//se empiezan con 0 peliculas y series 
 Catalogue::Catalogue() : numPeliculas(0), numSeries(0) {
         }
 
