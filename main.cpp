@@ -47,7 +47,7 @@ using namespace std;
     //pruebas con objetos directos
     Pelicula p1(1, 114, "Bumblebee", "Action", 4.7);
     p1.setCalificacion(5); //ejemplo de cambiar caracteristica despues de crear objeto
-    catalogo.agregarPelicula(&p1); //agregar pelicula al catalogo
+    catalogo.agregarPelicula(&p1); //agregar pelicula al catalogo. como se creo sin apuntador, hay que hacer un reference
 
     //pruebas con apuntadores
     Pelicula *p2 =  new Pelicula(4, 85, "Avatar", "Animation", 2.2); //creamos un objeto pelicula con apuntador
@@ -86,10 +86,10 @@ using namespace std;
     int option;
     bool exit = false;
 
-    while (!exit){
+    while (!exit){ //mientras no se pida exit por el usuario, el ciclo sigue
 
         mostrarMenu(); //imprimir menu
-        cin >> option; //guardar opcion seleccionada
+        cin >> option; //guardar opcion seleccionada por el usuario
 
         //dependiendo de la opcion, diferentes operaciones se realizan
         //opcion 1 despliega lista de peliculas
