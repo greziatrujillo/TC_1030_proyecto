@@ -6,8 +6,8 @@
  * 12/06/2025
  * 
  * seguimos con las pruebas para crear un programa para capturar tipos de videos, peliculas y series,
- * con sus atributos respectivos. Se almacenan estos datos para que el usuario pueda ver todo
- * dependiendo de su seleccion en el menu.
+ * con sus atributos respectivos. Se almacenan estos datos en el catalogo para que el usuario pueda ver todo
+ * dependiendo de su seleccion en el menu, que se inicializa antes del main, con las funciones dentro del main.
  */
 
 #include <iostream> 
@@ -22,11 +22,11 @@ using namespace std;
  //empezamos con la funcion de poder mostrar el menu con sus opciones al usuario
  //podemos ver peliculas, series, los episodios de dicha serie, o agregar cualquiera
  void mostrarMenu() {
-    cout << "Menu de Videos" << endl;
-    cout << "1. Movie" << endl;
+    cout << "Video Menu" << endl;
+    cout << "1. Movies" << endl;
     cout << "2. Series" << endl;
     cout << "3. Series Episodes" << endl;
-    cout << "4. Add movies" << endl;
+    cout << "4. Add movie" << endl;
     cout << "5. Add series" << endl;
     cout << "6. Exit" << endl;
     cout << "Please choose option: ";
@@ -92,17 +92,17 @@ using namespace std;
         cin >> option; //guardar opcion seleccionada
 
         //dependiendo de la opcion, diferentes operaciones se realizan
-        //opcion 1 despliega peliculas
+        //opcion 1 despliega lista de peliculas
         if (option == 1) {
             catalogo.mostrarPeliculas(); 
         }
 
-        //opcion 2 despliega series
+        //opcion 2 despliega lista de series
         else if (option == 2) {
             catalogo.mostrarSeries();
         }
 
-        //opcion 3 despliega episodios de una serie 
+        //opcion 3 despliega todos los episodios de las series en la lista de series con su informacion
         else if (option == 3) {
             cout << "Series episodes '" << s1->getNombre() << "':" << endl << endl;
             s1->mostrarEpisodios();
@@ -110,7 +110,7 @@ using namespace std;
             s2->mostrarEpisodios();
         }
 
-        //opcion 4 para agregar peliculas
+        //opcion 4 usuario puede agregar peliculas con entrada de datos pedida por el sistema
         else if (option == 4){
             //inicializamos las variables que vamos a usar
             int id, duracion;
@@ -134,7 +134,7 @@ using namespace std;
             catalogo.agregarPelicula(newMovie);
         }
 
-        //opcion 5 para agregar series
+        //opcion 5 usuario puede agregar serie con entrada de datos pedidos por el sistema
         else if (option == 5){
             //inicializamos las variables que vamos a usar
             int id, duracion;
@@ -153,12 +153,12 @@ using namespace std;
             cout << "Enter grade:" << endl;
             cin >> calificacion;
 
-            //nueva pelicula se crea y se almacena en el catalogo
+            //nueva serie se crea y se almacena en el catalogo
             Serie *newSeries = new Serie (id, duracion, nombre, genero, calificacion);
             catalogo.agregarSerie(newSeries);
         }
 
-        //opcion 6 para salir del menu
+        //opcion 6 usuario puede salir del menu.
         else if (option == 6) {
             cout << "Goodbye and thank you." << endl;
             exit = true; //cambia el valor de exit a true para salir del ciclo
