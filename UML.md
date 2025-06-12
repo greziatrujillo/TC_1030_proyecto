@@ -1,5 +1,5 @@
 ### UML creado
-![image](https://github.com/user-attachments/assets/0bf7f30b-d19a-442c-9dc1-98fa429a1506)
+![image](https://github.com/user-attachments/assets/21692876-4b18-4999-9776-0fd588f6f54f)
 
 
 ### Expliación de UML breve
